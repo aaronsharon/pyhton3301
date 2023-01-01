@@ -3,6 +3,7 @@
 #pyperclip
 import time,sys,json
 import pyperclip 
+import time 
 from pathlib import Path
 
 file = "pass.txt"
@@ -50,13 +51,20 @@ def savePassword():
     print("Password Saved Safely ;) ")
     # print("\U0001F601")
 
+def count(t):
+    while t > 0:
+        print(t)
+        t=t-1
+        time.sleep(1)
+
 def findPassword():
     account = input("Enter website\email:")
     if account in passwords.keys():
         encrypted_pass = passwords[account]
         pyperclip.copy(decode(encrypted_pass))
         print("Password copied for 10 seconds...")
-        time.sleep(10)
+        count(10)
+        # time.sleep()
         pyperclip.copy("")
         print("Password destroyed from clipboard")
     else:
