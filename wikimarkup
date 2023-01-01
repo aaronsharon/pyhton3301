@@ -1,0 +1,17 @@
+import pyperclip  
+# text = input(str('Enter the text')) 
+text = pyperclip.paste() 
+print("Before Modification:") 
+print(text) 
+lines = text.split("\n")  
+for i in range(len(lines)): 
+    lines[i] = "*" + lines[i] 
+ 
+text = "\n".join(lines) 
+# copies new modified text 
+# to the clipboard 
+pyperclip.copy(text) 
+
+print("\nAfter Modification- The WikiMarkup code is:")  
+
+print(pyperclip.paste())
